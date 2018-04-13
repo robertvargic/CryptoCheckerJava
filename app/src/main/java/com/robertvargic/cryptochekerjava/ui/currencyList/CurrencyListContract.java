@@ -17,12 +17,10 @@ public interface CurrencyListContract {
         void stopLoadingAnimation();
 
         void initListView(List<Currency> currencyList);
-
     }
 
     interface Presenter extends BasePresenter {
 
         void getCurrencyList(Context context);
     }
-
 }

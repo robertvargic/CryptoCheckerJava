@@ -23,6 +23,7 @@ public class CurrencyListActivity extends AppCompatActivity implements CurrencyL
     @BindView(R.id.activity_currency_list_list_view)
     protected ListView mCurrencyListView;
 
+    //presenter
     private CurrencyListContract.Presenter mCurrencyListPresenter;
 
     private List<Currency> mCurrencyList;
@@ -33,9 +34,7 @@ public class CurrencyListActivity extends AppCompatActivity implements CurrencyL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_currency_list);
         ButterKnife.bind(this);
-
         setPresenter(new CurrencyListPresenter(this));
-
         mCurrencyListPresenter.getCurrencyList(this);
     }
 
