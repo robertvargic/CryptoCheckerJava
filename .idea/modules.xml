@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CryptoChekerJava.iml" filepath="$PROJECT_DIR$/CryptoChekerJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CryptoCheckerJava.iml" filepath="$PROJECT_DIR$/CryptoCheckerJava.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
