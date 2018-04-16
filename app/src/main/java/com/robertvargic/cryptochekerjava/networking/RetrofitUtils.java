@@ -46,11 +46,9 @@ public class RetrofitUtils {
     };
 
     private static Retrofit createRetrofit(@NonNull Context context) throws NoSuchAlgorithmException, KeyManagementException {
-
         return new Retrofit.Builder()
                 .baseUrl("https://api.coinmarketcap.com/")
                 .addConverterFactory(GsonConverterFactory.create(getGson()))
-
                 .build();
     }
 
