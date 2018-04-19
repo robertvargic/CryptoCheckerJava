@@ -5,10 +5,10 @@ import retrofit2.Retrofit;
 
 public abstract class BaseTask<S> {
 
-    protected S mService;
-    protected Call mActiveCall;
+    S mService;
+    Call mActiveCall;
 
-    protected BaseTask(Retrofit retrofit, Class<S> serviceClass) {
+    BaseTask(Retrofit retrofit, Class<S> serviceClass) {
         mService = retrofit.create(serviceClass);
     }
 
