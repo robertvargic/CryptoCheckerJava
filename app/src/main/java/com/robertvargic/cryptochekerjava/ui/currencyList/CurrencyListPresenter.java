@@ -5,7 +5,7 @@ import android.content.Context;
 import com.robertvargic.cryptochekerjava.models.Currency;
 import com.robertvargic.cryptochekerjava.networking.GetCurrencyListTask;
 import com.robertvargic.cryptochekerjava.networking.RetrofitUtils;
-import com.robertvargic.cryptochekerjava.networking.TaskListener;
+import com.robertvargic.cryptochekerjava.networking.base.TaskListener;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -28,7 +28,7 @@ public class CurrencyListPresenter implements CurrencyListContract.Presenter {
         GetCurrencyListTask task = null;
         mCurrencyList = new ArrayList<>();
         try {
-            task = new GetCurrencyListTask(RetrofitUtils.createRetrofitForUrl(context), null);
+            task = new GetCurrencyListTask(RetrofitUtils.createRetrofitForUrl(context));
             task.execute(new TaskListener<List<Currency>>() {
                 @Override
                 public void onPreExecute() {

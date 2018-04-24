@@ -3,6 +3,9 @@ package com.robertvargic.cryptochekerjava.networking;
 import android.util.Log;
 
 import com.robertvargic.cryptochekerjava.models.Currency;
+import com.robertvargic.cryptochekerjava.networking.base.BaseTask;
+import com.robertvargic.cryptochekerjava.networking.base.ServerTask;
+import com.robertvargic.cryptochekerjava.networking.base.TaskListener;
 
 import java.util.List;
 
@@ -10,22 +13,20 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.http.GET;
 
-public class GetCurrencyListTask extends BaseTask<GetCurrencyListTask.Service> implements ServerTask<List<Currency>, Void> {
+public class GetCurrencyListTask extends BaseTask implements ServerTask<List<Currency>> {
 
-    public GetCurrencyListTask(Retrofit retrofit, Class<Service> serviceClass) {
-        super(retrofit, Service.class);
+    public GetCurrencyListTask(Retrofit retrofit) {
+        super(retrofit);
     }
 
     @Override
-    public void execute(final TaskListener<List<Currency>> listener, Void... params) {
+    public void execute(final TaskListener<List<Currency>> listener) {
         if (listener == null) {
             return;
         }
         listener.onPreExecute();
         Call<List<Currency>> call = mService.getCurrencyList();
-        mActiveCall = call;
         call.enqueue(new Callback<List<Currency>>() {
             @Override
             public void onResponse(Call<List<Currency>> call, Response<List<Currency>> response) {
@@ -43,10 +44,5 @@ public class GetCurrencyListTask extends BaseTask<GetCurrencyListTask.Service> i
                 listener.onError(t);
             }
         });
-    }
-
-    interface Service {
-        @GET("v1/ticker/")
-        Call<List<Currency>> getCurrencyList();
     }
 }

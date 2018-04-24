@@ -1,4 +1,4 @@
-package com.robertvargic.cryptochekerjava.networking;
+package com.robertvargic.cryptochekerjava.networking.base;
 
 public interface TaskListener<T> {
 
